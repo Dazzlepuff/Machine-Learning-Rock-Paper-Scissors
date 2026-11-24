@@ -23,5 +23,5 @@
     if(isset($_GET['guest']) && $_GET['guest'] === 'true') {
         $_SESSION['username'] = 'Guest';
     }
-    echo "<p>Welcome " . $_SESSION['username'] . "!</p>";
+    echo "<p>Welcome " . htmlspecialchars($_SESSION['username']) . "!</p>";
 ?>

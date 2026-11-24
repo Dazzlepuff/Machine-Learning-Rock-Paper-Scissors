@@ -6,8 +6,8 @@ $conn = new mysqli($hn, $un, $pw, $db);
 if($conn -> connect_error) die ("Fatal Error");
 
 if(isset($_POST['username'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
 
     $username_check_statement = $conn->prepare("SELECT * FROM Account WHERE Username = ?;");
     $username_check_statement->bind_param("s", $username);

@@ -12,8 +12,8 @@ if(!$result) die ("Fatal Error");
 $rows = $result -> num_rows;
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     # Get username and password from the form in user_login.php
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
 
     # Prepares statement for mysql, retrieves all accounts where username and password match (Assumes two accounts shouldn't share same user and pass)
     $login_statement=$conn->prepare("SELECT * FROM Account WHERE Username = ? AND Password = AES_ENCRYPT(?,?);");
